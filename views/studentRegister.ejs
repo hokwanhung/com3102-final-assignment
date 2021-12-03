@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Register profile</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">Final Assignment</a></h1>
+            <h2>Register</h2>
+        </header>
+        <section class="registerForm">
+            <form action="/studentRegister" method="POST">
+                <fieldset>
+                    <% if (locals.message) { %>
+                        <div class="registerFlash">
+                            <%= message %>
+                        </div>
+                    <% } %>
+                    <br>
+                    <div class="username">
+                        <label for="username">Student ID</label>
+                        <br>
+                        s<input type="text" id="username" name="username" title="Please check your Student ID" pattern="[0-9]{6}" required>
+                    </div>
+                    <br>
+                    <div class="program">
+                        <label for="program">Program in progress</label>
+                        <br>
+                        <input type="text" id="program" name="program" required>
+                    </div>
+                    <br>
+                    <div class="admissionYear">
+                        <label for="admissionYear">Admission Year</label>
+                        <br>
+                        <input type="text" id="admissionYear" name="admissionYear" title="Please input a valid year" pattern="[0-9]{4}" required>
+                    </div>
+                    <br>
+                    <div class="password">
+                        <label for="password">Password</label>
+                        <br>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <br>
+                    <div class="r_password">
+                        <label for="r_password">Repeat password</label>
+                        <br>
+                        <input type="password" id="r_password" name="r_password" required>
+                    </div>
+                    <p><button type="submit">Create profile</button> or already have a profile? <a href="/login">Log in</a></p>
+                </fieldset>
+            </form>
+        </section>
+    </body>
+</html>

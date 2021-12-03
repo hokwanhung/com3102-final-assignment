@@ -1,0 +1,32 @@
+<nav class="header">
+    <!-- The title comes with icon -->
+    <h1 class="webTitle">Final Assignment</h1>
+    <nav class="headerNav">
+        <ul>
+            <li class="username">
+                <% if (locals.username) { %>
+                    Welcome! <%= username %>
+                <% } %> 
+            </li>
+            <li class="search">
+                <span>Search the average course GPA
+                    <!-- when submit value through get -> req.query -->
+                    <form action="/search" method="GET" >
+                        <% if (locals.searchOptions) { %> 
+                            <input type="text" name="search" value="<%= searchOptions %>" size="18">
+                        <% } else { %>
+                            <input type="text" name="search" placeholder="Course Code" title="Please enter a course code" required>
+                        <% } %>
+                        <button type="submit">&#128269;</button>
+                    </form>
+                </span>
+            </li>
+            <strong><li><a href="../course/create">Import course information</a></li></strong>
+            <div class="logoutBtn">
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit">Log out</button>
+                </form>
+            </div>
+        </ul>
+    </nav>
+</nav>

@@ -1,0 +1,20 @@
+<fieldset>
+    <div class="courseCode">
+        <label for="code">Course Code</label>
+        <br>
+        <input type="text" id="code" name="code" value="<%= course.code %>" required>
+    </div>
+    <br>
+    <div class="courseName">
+        <label for="name">Course Name</label>
+        <br>
+        <input type="text" id="name" name="name" value="<%= course.name %>" pattern="[+- A-F]"required>
+    </div>
+    <br>
+    <div class="GPA">
+        <label for="GPA">Course GPA</label>
+        <br>
+        <input type="text" id="GPA" name="GPA" value="<%= course.GPA %>" required>
+    </div>
+    <br>
+</fieldset>
