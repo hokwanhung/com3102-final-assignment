@@ -1,3 +1,4 @@
+// Import required dependencies.
 const express = require('express');
 const router = express.Router();
 const Course = require('../models/course');
@@ -18,7 +19,8 @@ router.get('/create', authenticated, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    let dict ={"A": 4.0,
+    let dict = {
+        "A": 4.0,
         "A-": 3.7,
         "B+": 3.3,
         "B": 3.0,
@@ -28,12 +30,13 @@ router.post('/', async (req, res) => {
         "C-": 1.7,
         "D+": 1.3,
         "D": 1,
-        "F": 0}
+        "F": 0
+    }
 
     const course = new Course({
         code: req.body.code,
         name: req.body.name,
-        GPA: dict[req.body.GPA] 
+        GPA: dict[req.body.GPA]
     });
     try {
         await course.save();

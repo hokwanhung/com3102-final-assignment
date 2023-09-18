@@ -16,6 +16,8 @@ This module aims to provide students with a thorough understanding of the web te
   - [License](#license)
   - [Credits](#credits)
   - [FAQ (Frequently Asked Questions)](#faq-frequently-asked-questions)
+    - [1. What is the difference between `GET` and `POST` method?](#1-what-is-the-difference-between-get-and-post-method)
+    - [2. What is the difference between `Endpoints` and `URLs`?](#2-what-is-the-difference-between-endpoints-and-urls)
 
 ## Installation
 
@@ -26,3 +28,16 @@ This module aims to provide students with a thorough understanding of the web te
 ## Credits
 
 ## FAQ (Frequently Asked Questions)
+
+### 1. What is the difference between `GET` and `POST` method?
+
+Three main differences:
+
+- Purpose: `GET` requests are primarily used for retrieving data from the server, while `POST` requests are used for submitting data to the server.
+- Visibility: `GET` requests' data is visible in the URL, while `POST` requests' data is not visible in the URL.
+- Common Usages: `GET` requests are used in cases including fetching web pages, loading images and other assets, and performing searches, while `POST` requests are used in cases including submitting forms on websites, creating new records in a database, and sending data to server endpoints for processing.
+
+P.S. `GET` requests are `idempotent` and no state of the system will be changed if requests are sent multiple times.
+
+### 2. What is the difference between `Endpoints` and `URLs`?
+
