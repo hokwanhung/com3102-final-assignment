@@ -41,3 +41,6 @@ P.S. `GET` requests are `idempotent` and no state of the system will be changed 
 
 ### 2. What is the difference between `Endpoints` and `URLs`?
 
+`Endpoints` are entry points to access spefici resources or perform specific actions, e.g. data retrieval, data submission or `CRUD (Create, Read, Update and Delete)` operations, while `URLs` are regular web addresses to access various types of web content, typically in a web browser.
+
+`Endpoints` are an integral part of web `APIs`, and one of the most common type of `API` responses is through `JSON` or `XML` formats.
