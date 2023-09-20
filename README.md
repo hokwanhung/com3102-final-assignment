@@ -17,6 +17,7 @@ This module aims to provide students with a thorough understanding of the web te
     - [Quick Start](#quick-start)
       - [MongoDB: Common errors and methods to handle](#mongodb-common-errors-and-methods-to-handle)
       - [MongoDB: Setups and Configurations](#mongodb-setups-and-configurations)
+      - [MongoDB: Regular Starting](#mongodb-regular-starting)
     - [Demo (Without styles)](#demo-without-styles)
   - [License](#license)
   - [Credits](#credits)
@@ -180,6 +181,28 @@ security:
 ```
 
 Afterwards, the access control should be enabled and the above user constraints are effective. More information can be seen in this `Youtube` video: [How To Enable Access Control In MongoDB | Code Debugger](https://www.youtube.com/watch?v=wWHVXLj2ICI&ab_channel=CodeDebuggerbyDhananjay)
+
+#### MongoDB: Regular Starting
+
+Confirm that the `MongoDB Server (MongoDB)` is running in `Services` for Windows users.
+
+Then connect to `MongoDB` with the connection string `mongodb://student:student@127.0.0.1:27017/?authMechanism=DEFAULT`. The connection can be easily established through `Visual Studio Code`'s extension - `MongoDB for VS Code`: 
+
+![Alt text](/markdown_images/vsc-extension.png)
+
+For the `.env` file that are crucial to `index.js`, the below information is needed:
+
+```
+NODE_ENV=development # Optional
+
+DATABASE_URL=mongodb://student:student@127.0.0.1:27017/?authMechanism=DEFAULT
+
+SESSION_SECRET=com3102 # Should be generated in real-time, but as for development purposes (self-defined).
+```
+
+After the `MongoDB` connection is successfully established, open any command-line interpreter applications, e.g., `cmd`, and input the following command: `npm start`. The following message will be shown if all starts are successful.
+
+![Alt text](/markdown_images/successful-run.png)
 
 ### Demo (Without styles)
 
