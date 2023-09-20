@@ -1,3 +1,7 @@
+/*
+ * Check "course.js" for the comments of the folder "models"
+*/
+
 // create a model connect with db (under the MVC design pattern)
 const mongoose = require('mongoose')
 

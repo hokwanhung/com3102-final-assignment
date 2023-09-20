@@ -4,9 +4,13 @@ const router = express.Router();
 const Course = require('../models/course');
 const authenticated = require('../passport/authenticated');
 
+// When a GET request is sent to the endpoint '/create',
+// "authenticated.js" is used as middleware in this router - 
+// if the user fails, might be redirected to another URL written in "authenticated.js".
 router.get('/create', authenticated, async (req, res) => {
     try {
         res.render('course/create', {
+            // Render the 'course/create' view, and pass an object with properties below to the view.
             // '../views/layouts/default'
             layout: false,
             course: new Course(),
@@ -18,6 +22,8 @@ router.get('/create', authenticated, async (req, res) => {
     }
 });
 
+// When a POST request is sent to the endpoint '/',
+// and the user wants to create a new course.
 router.post('/', async (req, res) => {
     let dict = {
         "A": 4.0,
@@ -33,12 +39,16 @@ router.post('/', async (req, res) => {
         "F": 0
     }
 
+    // Create a new instance of the 'Course' model using data from the request body.
     const course = new Course({
         code: req.body.code,
         name: req.body.name,
         GPA: dict[req.body.GPA]
     });
     try {
+        // Save the data to the database.
+        // As MongoDB is schema-less, both the collection and structure are not required before usage,
+        // which means the collection "courses" would be automatically created if it is not yet created.
         await course.save();
         res.redirect('/');
     } catch (e) {
@@ -48,4 +58,5 @@ router.post('/', async (req, res) => {
     }
 });
 
+// The router object is exported for availabling uses in other parts.
 module.exports = router;

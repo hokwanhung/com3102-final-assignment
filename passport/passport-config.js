@@ -1,3 +1,6 @@
+/*
+ * Provide configurations for passport.js
+*/
 const localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const Student = require('../models/student');
@@ -12,6 +15,7 @@ function initialize(passport) {
             user = await Student.findOne({ studentID: username });
         }
         if (!user) {
+            // When no username is found,
             // done(error in this operation, user found)
             return done(null, false, { message: 'Invalid username or password.' });
         }
@@ -27,11 +31,14 @@ function initialize(passport) {
         }
     }
     
+    // Define new local strategy used by passport,
+    // in which it must contain the below two fields and use the above verify function.
     passport.use(new localStrategy({
         usernameField: 'username',
         passwordField: 'password'
     }, authenticateUser));
     
+    // If authentication is successful, save user_id to session.
     // after authenticate(local) -> serialize to session for remembering -> choose info to save to session
     // to lower the session space occupation -> retrieve the user id from the user object only
     // import to the extra property 'passport' created in session
@@ -57,4 +64,5 @@ function initialize(passport) {
     });
 }
 
+// Used in index.js
 module.exports = initialize;
