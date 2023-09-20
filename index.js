@@ -46,6 +46,7 @@ app.use(express.urlencoded({ extended: true }));
 // Enable storage of session data in a MongoDB database.
 const sessionStore = new MongoStore({
     mongoUrl: process.env.DATABASE_URL,
+    dbName: 'com3102', // modified
     collection: 'sessions'  // the name of the collection for session storage (created automatically)
 });
 app.use(session({
